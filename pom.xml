@@ -20,6 +20,7 @@
     <modules>
         <module>xy-kafka</module>
         <module>xy-common</module>
+        <module>xy-base</module>
     </modules>
 
     <properties>
