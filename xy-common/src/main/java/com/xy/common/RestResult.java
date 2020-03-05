@@ -14,7 +14,7 @@ import lombok.Data;
 public class RestResult<T> {
 
     private static final int SUCCESS_CODE = 1;
-    private static final String SUCESS_MESSAGE = "调用成功";
+    private static final String SUCCESS_MESSAGE = "调用成功";
 
     private int code;
     private String message;
@@ -25,8 +25,8 @@ public class RestResult<T> {
                 .message(xyException.getErrMsg()).build();
     }
 
-    public static <T> RestResult<T> sucess(T data){
+    public static <T> RestResult<T> success(T data){
         return RestResult.<T>builder().code(SUCCESS_CODE)
-                .message(SUCESS_MESSAGE).data(data).build();
+                .message(SUCCESS_MESSAGE).data(data).build();
     }
 }

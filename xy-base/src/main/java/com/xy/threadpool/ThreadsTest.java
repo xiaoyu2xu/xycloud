@@ -10,12 +10,7 @@ public class ThreadsTest {
         ExecutorService pool = Executors.newFixedThreadPool(10);
 
         List<Future> list = new ArrayList<Future>();
-        Callable c = new Callable(){
-
-            public Object call() throws Exception {
-                return "调用call方法";
-            }
-        };
+        Callable c = () -> "调用call方法";
 
         Future f = pool.submit(c);
 
