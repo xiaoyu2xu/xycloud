@@ -1,18 +1,18 @@
-kafka:
-  #(kafka生产集群ip+port端口)
-  bootstrap-servers: localhost:9092
-  producer:
-    buffer-memory: 40960
-    retries: 0
-    batch-size: 4096
-    properties:
-      linger.ms: 1
-  consumer:
-    #(是否自动提交)
-    enable-auto-commit: true
-    auto-commit-interval: 100ms
-    #(实时生产，实时消费，不会从头开始消费)
-    auto-offset-reset: latest
-    group-id: test #(消费组)
-    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#kafka:
+#  #(kafka生产集群ip+port端口)
+#  bootstrap-servers: localhost:9092
+#  producer:
+#    buffer-memory: 40960
+#    retries: 0
+#    batch-size: 4096
+#    properties:
+#      linger.ms: 1
+#  consumer:
+#    #(是否自动提交)
+#    enable-auto-commit: true
+#    auto-commit-interval: 100ms
+#    #(实时生产，实时消费，不会从头开始消费)
+#    auto-offset-reset: latest
+#    group-id: test #(消费组)
+#    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

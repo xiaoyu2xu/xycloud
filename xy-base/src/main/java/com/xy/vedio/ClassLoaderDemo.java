@@ -31,8 +31,6 @@ public class ClassLoaderDemo extends ClassLoader {
         this.classLoaderName = classLoaderName;
     }
 
-
-
     @Override
     public String toString() {
         return "{" +
