@@ -23,6 +23,7 @@
         <module>xy-base</module>
         <module>xy-data</module>
         <module>xy-shiro</module>
+        <module>xy-workflow</module>
     </modules>
 
     <properties>
