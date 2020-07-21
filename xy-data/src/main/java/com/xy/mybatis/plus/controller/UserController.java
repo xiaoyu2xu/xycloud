@@ -16,6 +16,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 用户登录
+     * @param adminUser
+     * @return
+     */
     @GetMapping("/login")
     public RestResult<String> login(@ModelAttribute AdminUser adminUser){
         RestResult<String> restResult = userService.queryUserInfo(adminUser);
