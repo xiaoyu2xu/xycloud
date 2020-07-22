@@ -26,7 +26,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("管理服务")
                 .description("管理服务")
-                .termsOfServiceUrl("http://127.0.0.1:8081")
+                .termsOfServiceUrl("http://127.0.0.1:8080")
                 .version("2.0")
                 .build();
     }

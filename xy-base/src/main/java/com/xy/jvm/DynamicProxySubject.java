@@ -9,9 +9,9 @@ public class DynamicProxySubject {
 
         RealSubject rs = new RealSubject();
         InvocationHandler ds = new DynamicSubject(rs);
-        Class<?> clas = rs.getClass();
+        Class<?> clazz = rs.getClass();
 
-        Subject subject = (Subject) Proxy.newProxyInstance(clas.getClassLoader(),clas.getInterfaces(),ds);
+        Subject subject = (Subject) Proxy.newProxyInstance(clazz.getClassLoader(),clazz.getInterfaces(),ds);
 
         subject.request();
         System.out.println(subject.getClass());
