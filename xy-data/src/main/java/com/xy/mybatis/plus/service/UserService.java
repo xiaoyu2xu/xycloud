@@ -6,4 +6,6 @@ import com.xy.mybatis.plus.entity.AdminUser;
 public interface UserService{
 
     RestResult<String> queryUserInfo(AdminUser adminUser);
+
+    RestResult<String> insertUserInfo(AdminUser adminUser);
 }

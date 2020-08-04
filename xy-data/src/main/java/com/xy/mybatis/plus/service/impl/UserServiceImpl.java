@@ -1,7 +1,9 @@
 package com.xy.mybatis.plus.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.xy.common.Constants;
 import com.xy.common.RestResult;
+import com.xy.exception.XyException;
 import com.xy.mybatis.plus.entity.AdminUser;
 import com.xy.mybatis.plus.mapper.UserMapper;
 import com.xy.mybatis.plus.service.UserService;
@@ -20,10 +22,18 @@ public class UserServiceImpl implements UserService {
     public RestResult<String> queryUserInfo(AdminUser adminUser) {
         QueryWrapper<AdminUser> queryWrapper = new QueryWrapper<>();
         AdminUser result = userMapper.selectOne(queryWrapper);
-        RestResult<Object> restResut = RestResult.builder().build();
         if(result == null){
-            restResut.success("the message is null");
+            RestResult.success("message is null");
         }
-        return restResut.success("the message is right");
+        return RestResult.success(Constants.CODE_SUCCESS_MESSAGE);
+    }
+
+    @Override
+    public RestResult<String> insertUserInfo(AdminUser adminUser) {
+        Integer result = userMapper.insert(adminUser);
+        if(result > 0){
+            return RestResult.success("insertUserInfo success! adminUser = " + adminUser);
+        }
+        return RestResult.error(XyException.builder().errCode(Constants.INSERT_CODE_ERROR).errMsg(Constants.INSERT_CODE_ERROR_MESSAGE).build());
     }
 }

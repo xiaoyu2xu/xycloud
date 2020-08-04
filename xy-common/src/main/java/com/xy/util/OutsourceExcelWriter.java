@@ -1,6 +1,7 @@
 package com.xy.util;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -10,8 +11,10 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -98,7 +101,7 @@ public class OutsourceExcelWriter {
         //输出Excel文件
         OutputStream output=response.getOutputStream();
         String userAgent = request.getHeader("USER-AGENT");
-        title = StringUtil.getFileName(userAgent,title);
+        title = getFileName(userAgent,title);
         response.reset();
         response.setContentType("application/msexcel; charset=UTF-8");
         response.setHeader("Content-Disposition", "attachment;filename=" + title +".xls");
@@ -134,4 +137,17 @@ public class OutsourceExcelWriter {
 
     }
 
+    public String getFileName(String userAgent, String fileName) throws UnsupportedEncodingException {
+        // IE浏览器
+        if (StringUtils.contains(userAgent, "MSIE")) {
+            fileName = URLEncoder.encode(fileName, "UTF8");
+            // google,火狐浏览器
+        } else if (StringUtils.contains(userAgent, "Mozilla")) {
+            fileName = new String(fileName.getBytes(), "ISO8859-1");
+            // 其他浏览器
+        } else {
+            fileName = URLEncoder.encode(fileName, "UTF8");
+        }
+        return fileName;
+    }
 }

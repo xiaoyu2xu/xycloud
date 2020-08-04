@@ -1,9 +1,15 @@
 package com.xy.exception;
 
 import com.xy.common.Constants;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
-
+@Data
+@Builder
+@NoArgsConstructor
 public class XyException extends Exception {
 
     private int errCode;
@@ -11,14 +17,6 @@ public class XyException extends Exception {
     private String errMsg;
 
     private Throwable causeThrowable;
-
-    public int getErrCode() {
-        return errCode;
-    }
-
-    public void setErrCode(int errCode) {
-        this.errCode = errCode;
-    }
 
     public String getErrMsg() {
         if (!StringUtils.isBlank(this.errMsg)) {
@@ -28,21 +26,6 @@ public class XyException extends Exception {
             return causeThrowable.getMessage();
         }
         return Constants.NULL;
-    }
-
-    public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
-    }
-
-    public Throwable getCauseThrowable() {
-        return causeThrowable;
-    }
-
-    public void setCauseThrowable(Throwable causeThrowable) {
-        this.causeThrowable = causeThrowable;
-    }
-
-    public XyException() {
     }
 
     public XyException(int errCode, String errMsg, Throwable causeThrowable) {

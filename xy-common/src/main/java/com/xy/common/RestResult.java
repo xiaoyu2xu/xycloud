@@ -20,12 +20,12 @@ public class RestResult<T> {
     private String message;
     private T data;
 
-    public RestResult error(XyException xyException){
+    public static RestResult error(XyException xyException){
         return RestResult.builder().code(xyException.getErrCode())
                 .message(xyException.getErrMsg()).build();
     }
 
-    public <T> RestResult<T> success(T data){
+    public static <T> RestResult<T> success(T data){
         return RestResult.<T>builder().code(SUCCESS_CODE)
                 .message(SUCCESS_MESSAGE).data(data).build();
     }

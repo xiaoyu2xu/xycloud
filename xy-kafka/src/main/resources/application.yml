@@ -16,3 +16,15 @@
 #    group-id: test #(消费组)
 #    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 #    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+# swagger-ui
+swagger:
+  enable: true
+
+# log
+logging:
+  level:
+    com.xy: DEBUG
+  # 默认日志路径
+  path: ..
+  file: ./xy-log/xy-kafka.log

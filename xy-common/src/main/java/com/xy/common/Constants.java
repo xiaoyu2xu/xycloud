@@ -143,4 +143,10 @@ public class Constants {
     public static final String NUMBER_PATTERN = "^\\d+$";
 
     public static final String ANY_PATTERN = ".*";
+
+    public static final int INSERT_CODE_ERROR = 00000001;
+    public static final String INSERT_CODE_ERROR_MESSAGE = "insert failed";
+
+    public static final int CODE_SUCCESS = 00000000;
+    public static final String CODE_SUCCESS_MESSAGE = "success";
 }
