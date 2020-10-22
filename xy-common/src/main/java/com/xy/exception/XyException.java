@@ -1,7 +1,6 @@
 package com.xy.exception;
 
 import com.xy.common.Constants;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
